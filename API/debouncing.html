@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="search"
+      placeholder="search by title"
+      oninput="handleSearch(event)"
+    />
+    <div id="results"></div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          title: "Apple iPhone 14 Pro Max",
+          description: "This is an amazing phone",
+          price: 142300,
+        },
+        {
+          id: 2,
+          title: "Samsung Galaxy S23",
+          description: "This is a new Samsung phone",
+          price: 142300,
+        },
+        {
+          id: 21,
+          title: "Samsung Galaxy S22",
+          description: "This is a loaded device phone",
+          price: 142300,
+        },
+        {
+          id: 3,
+          title: "Google Pixel 6",
+          description: "This is nothing but something",
+          price: 142300,
+        },
+      ];
+
+      function filterProducts(data, search) {
+        search = search.toLowerCase();
+
+        let filteredResult = [];
+        for (let i = 0; i < data.length; i++) {
+          // Destructure
+          const { title } = data[i];
+          const titleLC = title.toLowerCase();
+          const { description } = data[i];
+          const descriptionLC = description.toLowerCase();
+
+          // Searching
+          if (titleLC.includes(search) || descriptionLC.includes(search)) {
+            filteredResult.push(data[i]);
+          }
+        }
+
+        return filteredResult;
+      }
+
+      // Define a debounce function
+      function debounce(func, delay) {
+        let timeoutId;
+        return function (...args) {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+          }, delay);
+        };
+      }
+
+      // Function to handle the search event with debouncing
+      const handleSearch = debounce((event) => {
+        const query = event.target.value;
+        const filteredProducts = filterProducts(products, query);
+
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+
+        if (filteredProducts.length === 0) {
+          resultsDiv.innerText = "No matching products found.";
+        } else {
+          filteredProducts.forEach((product) => {
+            const productDiv = document.createElement("div");
+            productDiv.textContent = `${product.title} - ${product.description}`;
+            resultsDiv.appendChild(productDiv);
+          });
+        }
+      }, 300); // Debounce delay set to 300 milliseconds
+
+      // Initial search with an empty query to show all products
+      handleSearch({ target: { value: "" } });
+    </script>
+  </body>
+</html>

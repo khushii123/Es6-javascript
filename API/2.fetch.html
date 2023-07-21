@@ -10,13 +10,22 @@
         gap: 12px;
         flex-wrap: wrap;
       }
+      .card:hover {
+        transform: scale(1.1);
+      }
 
       .card {
+        transition: 1s 0.21s;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        /* padding-left: 77px; */
+        /* display: flex; */
+        border-radius: 19px;
         width: 200px;
-        height: 160px;
-        background-color: tomato;
+        height: 250px;
+        background-color: white;
         color: rgb(7, 0, 0);
-        padding: 12px;
+        padding: 5px;
+        margin: 18px;
       }
     </style>
   </head>
@@ -47,14 +56,21 @@
         const cardElem = document.createElement("div");
         cardElem.className = "card";
 
+        const imgElement = document.createElement("img");
+        imgElement.src = meraUparSeAayaHuaData[i].image;
+        imgElement.style.height = "100px";
+        imgElement.style.width = "100px";
+
         const titleElem = document.createElement("p");
         titleElem.innerText = meraUparSeAayaHuaData[i].title;
 
         const priceElem = document.createElement("p");
         priceElem.innerText = meraUparSeAayaHuaData[i].price;
+        cardElem.appendChild(imgElement);
 
         cardElem.appendChild(titleElem);
         cardElem.appendChild(priceElem);
+
         productListContainer.appendChild(cardElem);
       }
     });

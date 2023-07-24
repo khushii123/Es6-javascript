@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="home-btn">Home</button>
+      <button id="btn">yahoo</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  const homeBtn = document.getElementById("home-btn");
+  const yahoobtn = document.getElementById("btn");
+  /*   homeBtn.addEventListener("click", function (e) {
+    console.log(e.target);
+    e.target.innerText = "Clicked Button";
+  }); */
+
+  btn.addEventListener("click", function (e) {
+    console.log(e.target);
+    e.target.innerText = "button aa gyi dosto";
+    e.target.style.backgroundColor = "red";
+  });
+
+  homeBtn.addEventListener("click", function () {
+    console.log(this);
+    this.innerText = "khushi clicked the button";
+    this.style.backgroundColor = "tomato";
+    //this.style.display = "none";
+  });
+</script>

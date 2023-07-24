@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="home-btn">Home</button>
+      <button id="about-btn">About</button>
+      <button id="pricing-btn">Pricing</button>
+      <button id="namebtn">Name</button>
+    </div>
+  </body>
+</html>
+<script>
+  const homeBtn = document.getElementById("home-btn");
+  const aboutBtn = document.getElementById("about-btn");
+  const pricingBtn = document.getElementById("pricing-btn");
+  const Name = document.getElementById("namebtn");
+  /*1-way*/
+  homeBtn.addEventListener("click", function () {
+    alert("Home is clicked");
+  });
+  /*2-way*/
+
+  aboutBtn.addEventListener("click", () => {
+    alert("About is clicked");
+  });
+  /*3-way*/
+
+  function onHomeClicked() {
+    alert("pricing is clicked");
+  }
+  pricingBtn.addEventListener("click", onHomeClicked);
+
+  function namebtn() {
+    alert("your name");
+  }
+  namebtn.addEventListener("click", onHomeClicked);
+</script>

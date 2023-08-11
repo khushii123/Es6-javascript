@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //var x = 10;
+  let x = 30;
+  function foo() {
+    console.log(x);
+  }
+
+  function bar() {
+    x = 20; //it will overwrite the global value(update the gobal value)
+    foo();
+  }
+
+  bar(); //20
+</script>

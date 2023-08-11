@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  /**
+   * Self callable
+   * Only one time call
+   * You can't call it explicitely
+   */
+
+  // Before IIFE
+  function onUILoad() {
+    console.log("UI Loaded successfully");
+  }
+
+  onUILoad();
+
+  // After IIFE
+  (() => {
+    console.log("UI Loaded inside IIFE");
+  })();
+  //another way of write
+  (function () {
+    console.log("UI Loaded inside IIFE");
+  })();
+  //in arrow function
+  const funcIife = () => {
+    (() => {
+      console.log("UI Loaded inside funciife");
+    })();
+    console.log("avc");
+    //  return;
+  };
+  console.log(funcIife());
+</script>

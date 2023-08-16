@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const p = [
+    {
+      id: 1,
+      name: "John Doe",
+      city: "New York",
+      state: "New York",
+      isActive: true,
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      city: "Los Angeles",
+      state: "California",
+      isActive: false,
+    },
+    {
+      id: 3,
+      name: "Michael Johnson",
+      city: "Chicago",
+      state: "Illinois",
+      isActive: true,
+    },
+    {
+      id: 4,
+      name: "Emily Brown",
+      city: "Houston",
+      state: "Texas",
+      isActive: true,
+    },
+  ];
+
+  const transformedP = p.map((arry) => ({
+    ...item,
+    isActive: item.isActive ? "Available" : "Not Available",
+  }));
+
+  console.log(transformedP);
+</script>

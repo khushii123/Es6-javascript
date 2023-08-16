@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const myProfile = {
+    Name: "Bheem",
+    City: " Dholpur",
+    anotherOne: {
+      Game: " Cricket",
+      nestedObj: {
+        PinCode: 1234,
+      },
+    },
+  };
+  const { Game, nestedObj } = myProfile.anotherOne;
+  const { Name, City, Hobby = "Havefun", anotherOne } = myProfile;
+  const { PinCode } = myProfile.anotherOne.nestedObj;
+  console.log({ myProfile, anotherOne, Hobby });
+  console.log({ nestedObj });
+</script>

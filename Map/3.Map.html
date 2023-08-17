@@ -39,10 +39,16 @@
     },
   ];
 
-  const transformedP = p.map((arry) => ({
+  const transformedP = p.map((item) => ({
     ...item,
     isActive: item.isActive ? "Available" : "Not Available",
   }));
 
   console.log(transformedP);
+
+  const result = p.map((anotherItem) => ({
+    ...anotherItem,
+    city: anotherItem.city ? "yes" : "no",
+  }));
+  console.log(result);
 </script>

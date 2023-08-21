@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const NUMBER_REGEX_WITH_DOTS_DASHES = /[-.\d]+/g;
+  const NUMBER_REGEX_WITH_DOTS = /[.\d]+/g;
+
+  const formatNumberFieldValue = (inputValue) => {
+    let sign = "";
+    if (inputValue[0] === "-" || inputValue[0] === "+") {
+      sign = inputValue[0];
+      inputValue = inputValue.slice(1);
+    }
+
+    let sanitizedValue = inputValue
+      .replace(NUMBER_REGEX_WITH_DOTS_DASHES, "")
+      .replace(NUMBER_REGEX_WITH_DOTS, "");
+
+    return sign + sanitizedValue;
+  };
+
+  console.log(formatNumberFieldValue(" +1-123-456-78906"));
+</script>
